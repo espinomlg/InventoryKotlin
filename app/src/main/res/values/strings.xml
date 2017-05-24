@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">InventoryKotlin</string>
+    <string-array name="productclass">
+        <item>algo que</item>
+        <item>no se</item>
+        <item>que es</item>
+    </string-array>
+</resources>
