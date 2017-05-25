@@ -3,8 +3,7 @@ package com.example.espino.inventorykotlin.provider
 import android.net.Uri
 import android.provider.BaseColumns
 import com.example.espino.inventorykotlin.bd.DatabaseContract
-
-import java.util.HashMap
+import java.util.*
 
 
 /**
@@ -32,13 +31,13 @@ object InventoryProviderContract {
             val productProjectionMap = HashMap<String, String>()
 
             init {
-                productProjectionMap.put(ProductEntry._ID, DatabaseContract.ProductEntry.COLUMN_ID)
-                productProjectionMap.put(ProductEntry.SERIAL, DatabaseContract.ProductEntry.COLUMN_SERIAL)
-                productProjectionMap.put(ProductEntry.SHORTNAME, DatabaseContract.ProductEntry.COLUMN_SHORTNAME)
-                productProjectionMap.put(ProductEntry.DESCRIPTION, DatabaseContract.ProductEntry.COLUMN_DESCRIPTION )
-                productProjectionMap.put(ProductEntry.CATEGORY, DatabaseContract.ProductEntry.COLUMN_CATEGORY )
-                productProjectionMap.put(ProductEntry.SUBCATEGORY, DatabaseContract.ProductEntry.COLUMN_SUBCATEGORY )
-                productProjectionMap.put(ProductEntry.PRODUCTCLASS, DatabaseContract.ProductEntry.COLUMN_PRODUCTCLASS )
+                productProjectionMap.put(_ID, DatabaseContract.ProductEntry.COLUMN_ID)
+                productProjectionMap.put(SERIAL, DatabaseContract.ProductEntry.COLUMN_SERIAL)
+                productProjectionMap.put(SHORTNAME, DatabaseContract.ProductEntry.COLUMN_SHORTNAME)
+                productProjectionMap.put(DESCRIPTION, DatabaseContract.ProductEntry.COLUMN_DESCRIPTION )
+                productProjectionMap.put(CATEGORY, DatabaseContract.ProductEntry.COLUMN_CATEGORY )
+                productProjectionMap.put(SUBCATEGORY, DatabaseContract.ProductEntry.COLUMN_SUBCATEGORY )
+                productProjectionMap.put(PRODUCTCLASS, DatabaseContract.ProductEntry.COLUMN_PRODUCTCLASS )
             }
 
 

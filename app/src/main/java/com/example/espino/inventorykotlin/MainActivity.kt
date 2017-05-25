@@ -1,13 +1,12 @@
 package com.example.espino.inventorykotlin
 
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.example.espino.inventorykotlin.fragments.ListProductFragment
 import com.example.espino.inventorykotlin.fragments.ManageProductFragment
 
 class MainActivity : AppCompatActivity(), ListProductFragment.ListProductListener, ManageProductFragment.ManageProductListener {
-
 
     lateinit var productFragment: ListProductFragment
     lateinit var mngProductFragment: ManageProductFragment

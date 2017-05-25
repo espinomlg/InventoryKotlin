@@ -37,7 +37,7 @@ class ListProductAdapter(context: Context) : CursorAdapter(context, null, Cursor
         holder.serial.text = cursor.getString(1)
         holder.shortname.text = cursor.getString(2)
         holder.category.text = cursor.getString(4)
-        holder.category.text = cursor.getString(5)
+        holder.subcategory.text = cursor.getString(5)
     }
 
     override fun getItem(position: Int): Product {

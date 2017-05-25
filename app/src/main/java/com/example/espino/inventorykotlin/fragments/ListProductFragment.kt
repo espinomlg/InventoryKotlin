@@ -2,21 +2,16 @@ package com.example.espino.inventorykotlin.fragments
 
 import android.app.Activity
 import android.app.AlertDialog
-import android.content.DialogInterface
-
 import android.database.Cursor
 import android.os.Bundle
 import android.support.design.widget.FloatingActionButton
 import android.support.v4.app.ListFragment
 import android.view.*
 import android.widget.AdapterView
-
 import com.example.espino.inventorykotlin.R
 import com.example.espino.inventorykotlin.adapters.ListProductAdapter
-
 import com.example.espino.inventorykotlin.interfaces.ProductPresenter
 import com.example.espino.inventorykotlin.models.Product
-
 import com.example.espino.inventorykotlin.presenters.ProductPresenterImpl
 
 /**
@@ -112,16 +107,13 @@ class ListProductFragment : ListFragment(), ProductPresenter.View{
                         .setMessage("do you wnat to delete this product?")
                         .setPositiveButton("yes", { _, _ ->
                             presenter.deleteProduct(product)
-                            presenter.getAllProducts(loaderManager)
                         })
                         .setNegativeButton("no", null)
                         .show()
             }
 
-            R.id.contextmenu_edit->{
-
+            R.id.contextmenu_edit -> {
             }
-
         }
 
         return true

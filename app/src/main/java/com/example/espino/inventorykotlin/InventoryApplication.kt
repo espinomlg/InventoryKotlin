@@ -1,7 +1,6 @@
 package com.example.espino.inventorykotlin
 
 import android.app.Application
-import android.content.Context
 import com.example.espino.inventorykotlin.bd.DatabaseHelper
 
 /**
@@ -16,8 +15,6 @@ class InventoryApplication: Application(){
     init {
         context = this
     }
-
-
 
     override fun onCreate() {
         super.onCreate()

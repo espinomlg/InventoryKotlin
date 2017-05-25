@@ -16,7 +16,6 @@ import com.example.espino.inventorykotlin.models.Category
 import com.example.espino.inventorykotlin.models.Product
 import com.example.espino.inventorykotlin.models.Subcategory
 import com.example.espino.inventorykotlin.presenters.ManageProductPresenterImpl
-import org.w3c.dom.Text
 
 /**
  * Created by espino on 24/05/17.
@@ -126,7 +125,7 @@ class ManageProductFragment : Fragment(), ManageProductPresenter.View{
         subcategoryAdapter.changeCursor(c)
     }
 
-    fun SimpleCursorAdapter.getMyCategory(pos: Int) : Category{
+    private fun SimpleCursorAdapter.getMyCategory(pos: Int) : Category{
         cursor.moveToPosition(pos)
         var category = Category(cursor.getInt(0),
                 cursor.getString(1),
@@ -136,7 +135,7 @@ class ManageProductFragment : Fragment(), ManageProductPresenter.View{
         return category
     }
 
-    fun SimpleCursorAdapter.getMySubcategory(pos: Int) : Subcategory{
+    private fun SimpleCursorAdapter.getMySubcategory(pos: Int) : Subcategory{
         cursor.moveToPosition(pos)
         var subcategory = Subcategory(cursor.getInt(0),
                 cursor.getInt(1),
@@ -147,14 +146,13 @@ class ManageProductFragment : Fragment(), ManageProductPresenter.View{
         return subcategory
     }
 
-    private fun getProduct(): Product {
-        return Product(-1, serial.editText?.text?.toString() ?: "nulo",
-                shortname.editText?.text?.toString() ?: "nulo",
-                description.editText?.text?.toString() ?: "nulo",
-                categoryAdapter.getMyCategory(category.selectedItemPosition).id.toString(),
-                subcategoryAdapter.getMySubcategory(subcategory.selectedItemPosition).id.toString(),
-                productClass.selectedItemPosition.toString())
-    }
+    private fun getProduct(): Product = Product(-1, serial.editText?.text?.toString() ?: "nulo",
+            shortname.editText?.text?.toString() ?: "nulo",
+            description.editText?.text?.toString() ?: "nulo",
+            categoryAdapter.getMyCategory(category.selectedItemPosition).id.toString(),
+            subcategoryAdapter.getMySubcategory(subcategory.selectedItemPosition).id.toString(),
+            productClass.selectedItemPosition.toString())
+
 
 
 }

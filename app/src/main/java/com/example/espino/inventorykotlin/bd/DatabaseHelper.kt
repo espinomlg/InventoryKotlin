@@ -14,6 +14,8 @@ import com.example.espino.inventorykotlin.InventoryApplication
 
 object DatabaseHelper: SQLiteOpenHelper(InventoryApplication.context, "Inventory.db", null, 1) {
 
+    fun opendatabase(): SQLiteDatabase = writableDatabase
+
     override fun onCreate(db: SQLiteDatabase?) {
 
         try {
@@ -32,10 +34,10 @@ object DatabaseHelper: SQLiteOpenHelper(InventoryApplication.context, "Inventory
                     "('periféricos', 'per', 'suplementos para el pc'),\n" +
                     "('componentes', 'com', 'componentes para el pc');")
             db?.execSQL("insert into subcategory(categoryid, name, sortname, description)\n" +
-                    "values (0, 'pantallas', 'pant', 'monitores para pc'),\n" +
-                    "(0, 'ratones', 'rat', 'ratones para pc'),\n" +
-                    "(1, 'microprocesadores', 'micro', 'procesadores para pc'),\n" +
-                    "(1, 'memoria RAM', 'RAM', 'memoria RAM para pc');")
+                    "values (1, 'pantallas', 'pant', 'monitores para pc'),\n" +
+                    "(1, 'ratones', 'rat', 'ratones para pc'),\n" +
+                    "(2, 'microprocesadores', 'micro', 'procesadores para pc'),\n" +
+                    "(2, 'memoria RAM', 'RAM', 'memoria RAM para pc');")
             db?.execSQL("insert into productclass(description) values\n" +
                     "('algo'),\n" +
                     "('que no se que es');")
@@ -70,5 +72,4 @@ object DatabaseHelper: SQLiteOpenHelper(InventoryApplication.context, "Inventory
         onUpgrade(db, newVersion, oldVersion)
     }
 
-    fun opendatabase(): SQLiteDatabase = writableDatabase
 }

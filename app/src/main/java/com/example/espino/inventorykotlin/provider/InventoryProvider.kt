@@ -8,8 +8,6 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteQueryBuilder
 import android.net.Uri
-import android.provider.ContactsContract
-import android.util.Log
 import com.example.espino.inventorykotlin.bd.DatabaseContract
 import com.example.espino.inventorykotlin.bd.DatabaseHelper
 
@@ -59,7 +57,7 @@ class InventoryProvider : ContentProvider(){
                 ON ${DatabaseContract.ProductEntry.TABLE_NAME}.${DatabaseContract.ProductEntry.COLUMN_SUBCATEGORY} = ${DatabaseContract.SubCategoryEntry.TABLE_NAME}.${DatabaseContract.SubCategoryEntry.COLUMN_ID}"""
 
 
-                //queryBuilder.setProjectionMap(InventoryProviderContract.ProductEntry.productProjectionMap) TODO FALLA
+                //queryBuilder.setProjectionMap(InventoryProviderContract.ProductEntry.productProjectionMap) TODO falla
             }
             PRODUCT_ID->{
 
@@ -104,6 +102,8 @@ class InventoryProvider : ContentProvider(){
 
             }
         }
+
+        context.contentResolver.notifyChange(uri, null)
         return ContentUris.withAppendedId(uri, id)
     }
 
@@ -116,7 +116,7 @@ class InventoryProvider : ContentProvider(){
 
         when(uriMatcher.match(uri)){
             PRODUCT->{
-               db.delete(DatabaseContract.ProductEntry.TABLE_NAME, selection, selectionArgs)
+                db.delete(DatabaseContract.ProductEntry.TABLE_NAME, selection, selectionArgs)
             }
             PRODUCT_ID->{
 
@@ -134,6 +134,8 @@ class InventoryProvider : ContentProvider(){
 
             }
         }
+
+        context.contentResolver.notifyChange(uri, null)
         return id
     }
 
